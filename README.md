@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Ada in Tech - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the frontend code for the Ada in Tech platform, a web application dedicated to supporting women in technology in Sub-Saharan Africa through mentorship, skill-building, and awareness campaigns.
 
-## Available Scripts
+## About Ada in Tech
 
-In the project directory, you can run:
+Ada in Tech is an innovative platform dedicated to empowering women in the technology sector of Sub-Saharan Africa. Our mission is to bridge the gender gap in tech by providing resources, mentorship, and opportunities tailored specifically for women. The platform is a hub for learning, networking, and growth in the tech industry.
 
-### `npm start`
+### What We Do
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Mentorship Programs**: We connect newcomers in the tech industry with experienced professionals, offering mentorship and guidance.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Skill-Building Workshops**: Ada in Tech organizes workshops focusing on various technical and soft skills, helping women advance in their tech careers.
 
-### `npm test`
+- **Awareness Campaigns**: Our campaigns raise awareness about gender bias in tech and promote a culture of inclusivity and diversity.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Tech Courses**: Tailored courses are available on the platform, focusing on emerging technologies and industry-required skills.
 
-### `npm run build`
+- **Collaborations**: We collaborate with tech companies and recruiters to provide job opportunities and insights into industry needs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Community and Advocacy Groups**: The platform acts as a meeting ground for community groups and advocates for gender equality in tech.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Our Impact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ada in Tech aims to create a significant impact by:
 
-### `npm run eject`
+- **Addressing the Skills Gap**: Offering targeted training and educational resources to equip women with the necessary skills for a tech career.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Promoting Economic Growth**: By empowering women in tech, we contribute to a more diverse and inclusive workforce, leading to broader economic benefits.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Fostering a Cultural Shift**: Our platform works towards changing perceptions and encouraging a more gender-balanced tech industry.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Building a Supportive Community**: Ada in Tech is more than a platform; it's a community where women in tech can find support, mentorship, and opportunities.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Join us in our mission to empower women in tech and make a lasting difference in the industry!
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+These instructions will guide you to set up the project on your local machine for development and testing purposes.
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- npm or yarn
 
-### Analyzing the Bundle Size
+### Installing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Follow these steps to get your development environment running:
 
-### Making a Progressive Web App
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ada-in-tech/frontend.git
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Advanced Configuration
+3. Start the application:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application should now be running on `http://localhost:3000`.
+
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The frontend is deployed at https://ada-in-tech-frontend.onrender.com/. Visit the link for the live version.
 
-### `npm run build` fails to minify
+## Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React.js
+- Redux
+- TailwindCSS
+
+## Contributing
+
+Thank you for your interest in contributing to Ada in Tech! We welcome contributions from everyone who wishes to improve and expand the project. Here's how you can contribute:
+
+1. **Fork the Repository**
+   - Start by forking the repository to your GitHub account.
+
+2. **Create a Branch**
+   - Create a branch in your forked repository for your changes. It's best to name the branch something descriptive.
+
+3. **Make Your Changes**
+   - Make the necessary changes or improvements in your branch. Ensure you follow the existing code style and documentation standards.
+
+4. **Commit Your Changes**
+   - Commit your changes with a clear and descriptive commit message. This helps others understand the purpose of your changes.
+
+5. **Push to the Branch**
+   - Push your changes to your branch in your forked repository.
+
+6. **Submit a Pull Request**
+   - Once your changes are complete, submit a pull request to the main repository. In your pull request description, explain the changes and their purpose.
+
+7. **Code Review**
+   - Wait for a code review from the maintainers. They might suggest some changes or improvements. Be responsive to feedback.
+
+8. **Merge**
+   - If your pull request is approved, the maintainers will merge your changes into the main repository.
+
+### Guidelines
+
+- Ensure that your code additions are tested and maintain the integrity of the project.
+- Update the README.md with details of changes to the interface, if applicable.
+- You may merge the Pull Request once you have the sign-off of the maintainers, or if you do not have permission to do that, you may request the reviewer to merge it for you.
+
+Your contributions are greatly appreciated and will make a significant impact on this project!
+
+## Authors
+
+- Tito-Paris Olisakwe - [Tito-Olisakwe]
+
+## License
+
+This project is licensed under the ISC License.
