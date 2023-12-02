@@ -1,0 +1,76 @@
+/* card.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base card styles */
+.card {
+    @apply border border-gray-300 p-4 mb-6 rounded-lg shadow-sm bg-white;
+}
+
+/* Shared title styles for all cards */
+.card-title {
+    @apply text-xl font-semibold text-gray-800 mb-2;
+}
+
+/* Shared body text styles for all cards */
+.card-body {
+    @apply text-sm text-gray-600;
+}
+
+/* Specific styles for different card types */
+.course-card .card-image {
+    @apply w-full h-40 object-cover rounded-t-lg;
+}
+
+.job-card .card-company,
+.job-card .card-location {
+    @apply text-base text-gray-500;
+}
+
+.mentor-card .card-expertise {
+    @apply text-base text-gray-500;
+}
+
+.event-card .card-date {
+    @apply text-base text-gray-500;
+}
+
+.community-feed-card .card-content {
+    @apply text-base text-gray-600;
+}
+
+/* card.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base card styles */
+.card {
+    @apply border border-gray-300 p-4 mb-6 rounded-lg shadow-sm bg-white;
+}
+
+/* ... other card styles ... */
+
+/* CompanyProfileCard specific styles */
+.company-profile-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden mb-4 p-4;
+}
+
+.company-profile-card .company-logo {
+    @apply w-full h-40 object-cover rounded-t-lg; /* Adjust size as needed */
+}
+
+.company-profile-card .card-title {
+    @apply text-xl font-semibold text-gray-800 mb-2;
+}
+
+.company-profile-card .card-description {
+    @apply text-sm text-gray-600;
+}
+
+.company-profile-card .card-location {
+    @apply text-sm text-gray-500;
+}
+
+/* Add more specific styles or adjustments as needed */

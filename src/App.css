@@ -1,0 +1,70 @@
+/* App.css */
+@import './styles/theme.css';
+@import './styles/global.css';
+
+/* Reset default margin and padding */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+  /* Center text horizontally */
+}
+
+main {
+  flex: 1;
+  /* Flex grow to take available space */
+  display: flex;
+  /* Use flexbox for alignment */
+  flex-direction: column;
+  /* Stack children vertically */
+  justify-content: center;
+  /* Center children vertically */
+  align-items: center;
+  /* Center children horizontally */
+  padding: 2rem;
+  /* Add padding around the main content */
+}
+
+.header {
+  width: 100%;
+  /* Full width */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+  /* Include padding in width calculation */
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  /* Push footer to the bottom */
+}
+
+/* Completely hide the scrollbar for Webkit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide the scrollbar for Firefox */
+.App {
+  scrollbar-width: none;
+  /* For Firefox */
+}
+
+/* Hide the scrollbar for Internet Explorer and Edge */
+.App {
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
