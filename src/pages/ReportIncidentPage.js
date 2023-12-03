@@ -1,44 +1,50 @@
 import React, { useState } from 'react';
 import axios from '../services/api';
 import '../styles/components.css';
+import { decodeToken } from '../utils/helper';
 
 const ReportIncidentPage = () => {
     const [reportData, setReportData] = useState({
         description: '',
-        date: '',
-        file: null,
+        dateReported: '',
     });
+    const [submitting, setSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState('');
+
+    const token = localStorage.getItem('token');
+    const decoded = decodeToken(token);
+    const userId = decoded ? decoded.userId : null;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const formData = new FormData();
-        formData.append('description', reportData.description);
-        formData.append('date', reportData.date);
-        if (reportData.file) {
-            formData.append('file', reportData.file);
+        if (!userId) {
+            setSubmitError('User identification is required to submit a report.');
+            return;
         }
 
+        setSubmitting(true);
+        setSubmitSuccess(false);
+        setSubmitError('');
+
         try {
-            const response = await axios.post('/api/reports', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+            const response = await axios.post('/api/reports', {
+                user: userId,
+                description: reportData.description,
+                dateReported: reportData.dateReported, // Changed from 'date' to 'dateReported'
             });
             console.log('Report submitted:', response.data);
-            // Optionally, handle successful submission (e.g., showing a success message)
+            setSubmitSuccess(true);
         } catch (error) {
-            console.error('Error submitting report:', error.message);
-            // Optionally, handle error (e.g., showing an error message)
+            console.error('Error submitting report:', error);
+            setSubmitError('Error submitting report. Please try again.');
+        } finally {
+            setSubmitting(false);
         }
     };
 
     const handleChange = (e) => {
         setReportData({ ...reportData, [e.target.name]: e.target.value });
-    };
-
-    const handleFileChange = (e) => {
-        setReportData({ ...reportData, file: e.target.files[0] });
     };
 
     return (
@@ -53,17 +59,16 @@ const ReportIncidentPage = () => {
                 />
                 <input
                     type="date"
-                    name="date"
-                    value={reportData.date}
+                    name="dateReported" // Changed from 'date' to 'dateReported'
+                    value={reportData.dateReported}
                     onChange={handleChange}
                 />
-                <input
-                    type="file"
-                    name="file"
-                    onChange={handleFileChange}
-                />
-                <button type="submit">Submit Report</button>
+                <button type="submit" disabled={submitting}>
+                    {submitting ? 'Submitting...' : 'Submit Report'}
+                </button>
             </form>
+            {submitSuccess && <p className="success-message">Report submitted successfully.</p>}
+            {submitError && <p className="error-message">{submitError}</p>}
         </div>
     );
 };
