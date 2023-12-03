@@ -2,43 +2,29 @@ import React from 'react';
 import '../../styles/card.css';
 
 const Card = ({ item }) => {
-    // Destructuring properties that might be present in item
-    const { user, goals, challenges, areasOfExpertise, certifications } = item;
+    const { profilePicture, name, email, bio, skills, interests, linkedIn, github } = item.user || {};
 
-    // Determine card content based on the item's properties
-    const renderCardContent = () => {
-        if (areasOfExpertise || certifications) {
-            // Professional card layout
-            return (
-                <>
-                    <h3 className="card-title">{user}</h3>
-                    <ul>
-                        {areasOfExpertise && areasOfExpertise.map((expertise, index) => <li key={index}>{expertise}</li>)}
-                        {certifications && certifications.map((certification, index) => <li key={index}>{certification}</li>)}
-                    </ul>
-                </>
-            );
-        } else {
-            // Newcomer card layout
-            return (
-                <>
-                    <h3 className="card-title">{user}</h3>
-                    <ul>
-                        {goals && goals.map((goal, index) => <li key={index}>{goal}</li>)}
-                        {challenges && challenges.map((challenge, index) => <li key={index}>{challenge}</li>)}
-                    </ul>
-                </>
-            );
-        }
-    };
+    const defaultProfilePicture = 'https://cdn.vectorstock.com/i/preview-1x/15/40/blank-profile-picture-image-holder-with-a-crown-vector-42411540.jpg';
+    const userProfilePicture = profilePicture || defaultProfilePicture; // Use default if not set
+
+
+    const formatArray = (arr) => Array.isArray(arr) ? arr.join(', ') : '';
 
     return (
         <div className="card">
             <div className="p-4">
-                {renderCardContent()}
+                <img src={userProfilePicture} alt={name} className="w-32 h-32 rounded-full mb-4" />
+                <h3 className="card-title">{name}</h3>
+                <p>{email}</p>
+                <p>{bio}</p>
+                <p>Skills: {formatArray(skills)}</p>
+                <p>Interests: {formatArray(interests)}</p>
+                {linkedIn && <p>LinkedIn: <a href={linkedIn}>{linkedIn}</a></p>}
+                {github && <p>GitHub: <a href={github}>{github}</a></p>}
             </div>
         </div>
     );
 };
+
 
 export default Card;

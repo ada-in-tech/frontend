@@ -28,8 +28,9 @@ const NewcomerPage = () => {
     };
 
     const filteredNewcomers = newcomers.filter(newcomer =>
-        newcomer.user && newcomer.user.toLowerCase().includes(filterValue.toLowerCase())
+        newcomer.user.name.toLowerCase().includes(filterValue.toLowerCase())
     );
+
 
     return (
         <div className="newcomer-page">
