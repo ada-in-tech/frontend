@@ -6,21 +6,21 @@ import TestimonialCard from '../components/cards/TestimonialCard';
 import NewsCard from '../components/cards/NewsCard';
 
 const HomePage = () => {
-    const [latestNews, setLatestNews] = useState([]);
+    // const [latestNews, setLatestNews] = useState([]);
 
-    useEffect(() => {
-        const fetchLatestNews = async () => {
-            try {
-                const response = await axios.get('/api/news');
-                setLatestNews(response.data);
-            } catch (error) {
-                console.error('Error fetching latest news:', error.message);
-                // Optionally, handle error (e.g., showing an error message)
-            }
-        };
+    // useEffect(() => {
+    //     const fetchLatestNews = async () => {
+    //         try {
+    //             const response = await axios.get('/api/news');
+    //             setLatestNews(response.data);
+    //         } catch (error) {
+    //             console.error('Error fetching latest news:', error.message);
+    //             // Optionally, handle error (e.g., showing an error message)
+    //         }
+    //     };
 
-        fetchLatestNews();
-    }, []);
+    //     fetchLatestNews();
+    // }, []);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -79,7 +79,7 @@ const HomePage = () => {
             </section>
 
             {/* Latest News Section */}
-            <section className="bg-gray-100 py-20 text-center">
+            {/* <section className="bg-gray-100 py-20 text-center">
                 <h2 className="text-4xl font-bold mb-6">Latest News</h2>
                 <div className="container mx-auto grid md:grid-cols-3 gap-12">
                     {latestNews.map(newsItem => (
@@ -90,7 +90,7 @@ const HomePage = () => {
                         />
                     ))}
                 </div>
-            </section>
+                    </section> */}
         </div>
     );
 };

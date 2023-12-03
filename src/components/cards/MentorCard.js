@@ -2,11 +2,16 @@
 import React from 'react';
 import '../../styles/card.css';
 
-const MentorCard = ({ name, expertise }) => {
+const MentorCard = ({ user, areasOfExpertise }) => {
+    // Combining areas of expertise into a string
+    const expertiseString = areasOfExpertise.join(', ');
+
     return (
-        <div className="mentor-card">
-            <h3 className="mentor-name">{name}</h3>
-            <p className="mentor-expertise">{expertise}</p>
+        <div className="card">
+            <div className="p-4">
+                <h3 className="card-title">{user}</h3>
+                <p className="card-body">{expertiseString}</p>
+            </div>
         </div>
     );
 };

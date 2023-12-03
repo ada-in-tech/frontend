@@ -8,15 +8,18 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [userType, setUserType] = useState('guest');
 
-    const login = (userData) => {
+    const login = (userData, token) => {
+        console.log("Logging in with user data:", userData); // Debugging
         setUser(userData);
-        setUserType(userData.userRole);
-        // Optionally, persist user data and userType to localStorage here
+        setUserType(userData.role); // Use 'role' instead of 'userRole'
+        localStorage.setItem('token', token); // Store the token in local storage
+        // ...
     };
 
     const logout = () => {
         setUser(null);
         setUserType('guest');
+        localStorage.removeItem('token'); // Clear the token from local storage
         // Optionally, clear persisted data from localStorage here
     };
 
@@ -26,4 +29,3 @@ export const UserProvider = ({ children }) => {
         </UserContext.Provider>
     );
 };
-

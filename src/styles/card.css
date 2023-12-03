@@ -74,3 +74,17 @@
 }
 
 /* Add more specific styles or adjustments as needed */
+
+
+/* MentorCard specific styles */
+.mentor-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden mb-4 p-4; /* Basic card styling */
+}
+
+.mentor-card .mentor-name {
+    @apply text-lg font-semibold text-gray-800 mb-2; /* Style for the name */
+}
+
+.mentor-card .mentor-expertise {
+    @apply text-sm text-gray-600; /* Style for the expertise */
+}

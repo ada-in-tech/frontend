@@ -18,14 +18,22 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await loginUser(formData);
-            console.log("Login response data:", data); // Check the response data
-            login(data); // Set user data in context
-            navigate(`/${data.userRole}-dashboard`);
+            const response = await loginUser(formData);
+            console.log("Login response data:", response);
+
+            if (response.token) {
+                localStorage.setItem('token', response.token);
+            }
+
+            if (response.user) {
+                login(response.user, response.token);
+                navigate(`/${response.user.role}-dashboard`);
+            }
         } catch (error) {
             console.error('Login error:', error.message);
         }
     };
+
 
 
     const handleChange = (e) => {

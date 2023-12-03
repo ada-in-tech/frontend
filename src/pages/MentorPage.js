@@ -15,7 +15,6 @@ const ProfessionalPage = () => {
                 setProfessionals(response.data);
             } catch (error) {
                 console.error('Error fetching professionals:', error.message);
-                // Optionally, handle error (e.g., showing an error message)
             }
         };
 
@@ -27,7 +26,7 @@ const ProfessionalPage = () => {
     };
 
     const filteredProfessionals = professionals.filter(
-        professional => professional.name && professional.name.toLowerCase().includes(filterValue.toLowerCase())
+        professional => professional.user && professional.user.toLowerCase().includes(filterValue.toLowerCase())
     );
 
     return (
@@ -36,7 +35,11 @@ const ProfessionalPage = () => {
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredProfessionals.map(professional => (
-                    <Card key={professional.id} item={professional} className="professional-card" />
+                    <Card
+                        key={professional._id}
+                        item={professional}
+                        className="professional-card"
+                    />
                 ))}
             </div>
         </div>
