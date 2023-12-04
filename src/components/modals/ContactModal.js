@@ -37,12 +37,28 @@ const ContactModal = ({ user, onClose, onSend }) => {
                 }
             });
 
-            // Success handling
-            onClose(); // Close the modal
-            setAlertMessage('Message sent successfully');
-            setAlertType('success');
+            // Attempt to create a collaboration
+            const collabResponse = await axios.post('/api/collaborations', {
+                sender: senderId,
+                receiver: user._id
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            // Check if the collaboration was already existing
+            if (collabResponse.status === 200 && collabResponse.data.message === 'Collaboration already exists') {
+                setAlertMessage('Message sent. You already have an existing collaboration with this user.');
+                setAlertType('info');
+            } else {
+                setAlertMessage('Message sent and new collaboration created.');
+                setAlertType('success');
+            }
+
+            onClose(); // Close the modal after sending message and creating collaboration
         } catch (error) {
-            console.error('Error sending message:', error);
+            console.error('Error:', error);
             setAlertMessage('Failed to send message. Please try again.');
             setAlertType('error');
         }

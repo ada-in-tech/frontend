@@ -23,6 +23,7 @@ const NavigationBar = () => {
                     <li><Link to="/courses">Courses</Link></li>
                     <li><Link to="/job-listings">Job Search</Link></li>
                     <li><Link to="/mentor">Mentors</Link></li>
+                    <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>

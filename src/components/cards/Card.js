@@ -3,7 +3,22 @@ import axios from '../../services/api';
 import ContactModal from '../modals/ContactModal';
 
 const Card = ({ item }) => {
-    const { profilePicture, name, email, bio, skills, interests, linkedIn, github, role, _id } = item.user || {};
+    // Check if 'item' has a nested 'user' object; if not, use 'item' directly
+    const userData = item.user || item;
+
+    const {
+        profilePicture,
+        name,
+        email,
+        bio,
+        skills,
+        interests,
+        linkedIn,
+        github,
+        role,
+        _id
+    } = userData;
+
     const [showContactModal, setShowContactModal] = useState(false);
     const [message, setMessage] = useState('');
 
