@@ -308,26 +308,6 @@
     display: flex;
 }
 
-@media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .navigation {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--primary-color);
-    }
-
-    .navigation.expanded {
-        display: flex;
-    }
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -336,37 +316,8 @@
   background-color: var(--primary-color);
 }
 
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: white;
-  cursor: pointer;
-}
-
 .navigation {
   display: flex;
-}
-
-@media screen and (max-width: 1340px) {
-  .hamburger {
-      display: block;
-  }
-
-  .navigation {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: var(--primary-color);
-  }
-
-  .navigation.expanded {
-      display: flex;
-  }
 }
 
 .report-details-modal {
