@@ -10,14 +10,20 @@ const WorkshopPage = () => {
 
     useEffect(() => {
         const fetchWorkshops = async () => {
+            const token = localStorage.getItem('token');
             try {
-                // Replace '/api/workshops' with your actual endpoint
-                const response = await axios.get('/api/workshops');
+                const response = await axios.get('/api/workshops', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(response.data);
                 setWorkshops(response.data);
             } catch (error) {
-                console.error('Error fetching workshops:', error);
+                console.error('Error fetching workshops:', error.message);
             }
         };
+
         fetchWorkshops();
     }, []);
 
@@ -30,12 +36,12 @@ const WorkshopPage = () => {
     );
 
     return (
-        <div>
+        <div className="workshop-page">
             <h1>Workshops</h1>
-            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredWorkshops.map(workshop => (
-                    <WorkshopCard key={workshop.id} {...workshop} />
+                    <WorkshopCard key={workshop.id} workshop={workshop} />
                 ))}
             </div>
         </div>

@@ -59,6 +59,7 @@ const NavigationBar = () => {
                     <li><Link to="/newcomer">Newcomers</Link></li>
                     <li><Link to="/mentor">Mentors</Link></li>
                     <li><Link to="/course-creation">Create Course</Link></li>
+                    <li><Link to="/workshop-creation">Create Workshop</Link></li>
                     <li><Link to="/resource-creation">Create Resource</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                     <li><Link to="/collaboration">Collaborations</Link></li>

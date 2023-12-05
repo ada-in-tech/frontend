@@ -1,15 +1,20 @@
 import React from 'react';
-import '../../styles/card.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const WorkshopCard = ({ title, instructor, date, description }) => {
+const WorkshopCard = ({ workshop }) => {
+    const navigate = useNavigate();
+
+    // Function to handle card click
+    const handleCardClick = () => {
+        navigate(`/workshops/${workshop._id}`); // Navigate to detailed workshop page
+    };
+
     return (
-        <div className="card workshop-card">
-            <div className="p-4">
-                <h3 className="card-title">{title}</h3>
-                <p className="card-subtitle">{`Instructor: ${instructor}`}</p>
-                <p className="card-date">{`Date: ${date}`}</p>
-                <p className="card-body">{description}</p>
-            </div>
+        <div className="workshop-card" onClick={handleCardClick}>
+            <img src={workshop.image || 'https://designwizard.com/blog/famous-graphic-designers/resize/awardsBaitBannerImage_1650363716109_resize.jpg'} alt={workshop.title} />
+            <h3>{workshop.title}</h3>
+            <p>{workshop.description}</p>
+            <p>Organizer: {workshop.instructor?.name || 'Unknown'}</p>
         </div>
     );
 };

@@ -9,6 +9,7 @@ const CourseCreationPage = () => {
         description: '',
         content: '',
     });
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,9 +21,12 @@ const CourseCreationPage = () => {
 
         try {
             const response = await axios.post('/api/courses', courseWithInstructor);
+            setCourseData({ title: '', description: '', content: '' });
+            setSuccessMessage('Course created successfully!');
             console.log(response.data);
         } catch (error) {
             console.error('Error creating course:', error.message);
+            setSuccessMessage('');
         }
     };
 
@@ -34,6 +38,7 @@ const CourseCreationPage = () => {
     return (
         <div className="course-creation-container">
             <h2>Create a New Course</h2>
+            {successMessage && <div className="success-message">{successMessage}</div>}
             <form className="course-form" onSubmit={handleSubmit}>
                 <div className="input-field">
                     <label>Course Title</label>
