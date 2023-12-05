@@ -1,69 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../services/api';
-import Card from '../../components/cards/Card';
-import CompanyProfileCard from '../../components/cards/CompanyProfileCard';
-import CommunityFeed from '../../components/common/CommunityFeed';
-import '../../styles/components.css';
+import { decodeToken } from '../../utils/helper';
 
-const CompanyDashboard = () => {
-    const [jobPostings, setJobPostings] = useState([]);
-    const [talentSearchResults, setTalentSearchResults] = useState([]);
-    const [collaborationOpportunities, setCollaborationOpportunities] = useState([]);
-    const [companyEvents, setCompanyEvents] = useState([]);
-    const [companyProfile, setCompanyProfile] = useState(null);
-    const [communityPosts, setCommunityPosts] = useState([]);
+const DashboardPage = () => {
+    const [userName, setUserName] = useState('Guest');
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchUserData = async () => {
+            const token = localStorage.getItem('token');
+            const decoded = decodeToken(token);
+            const userId = decoded ? decoded.userId : null;
+            if (!token) return;
+
             try {
-                const jobPostingsResponse = await axios.get('/api/jobpostings');
-                setJobPostings(jobPostingsResponse.data);
-                // Fetch other data similarly
+                // Assuming your API has an endpoint that returns the logged-in user's data
+                const response = await axios.get(`/api/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setUserName(response.data.name); // Update this path based on your API response structure
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching user data:', error);
             }
         };
-        fetchData();
+
+        fetchUserData();
     }, []);
 
     return (
-        <div className="dashboard">
-            <section className="job-postings">
-                <h2 className="dashboard-title">Job Postings</h2>
-                {jobPostings.map(job => (
-                    <Card key={job.id} item={job} />
-                ))}
-            </section>
-            <section className="talent-search">
-                <h2 className="dashboard-title">Talent Search</h2>
-                {talentSearchResults.map(profile => (
-                    <Card key={profile.id} item={profile} />
-                ))}
-            </section>
-            <section className="collaborations">
-                <h2 className="dashboard-title">Collaboration Opportunities</h2>
-                {collaborationOpportunities.map(opportunity => (
-                    <Card key={opportunity.id} item={opportunity} />
-                ))}
-            </section>
-            <section className="events">
-                <h2 className="dashboard-title">Your Events</h2>
-                {companyEvents.map(event => (
-                    <Card key={event.id} item={event} />
-                ))}
-            </section>
-            <section className="company-profile">
-                <h2 className="dashboard-title">Company Profile</h2>
-                {companyProfile && (
-                    <CompanyProfileCard {...companyProfile} />
-                )}
-            </section>
-            <section className="community-feed">
-                <h2 className="text-2xl font-bold mb-4">Community Feed</h2>
-                <CommunityFeed feeds={communityPosts} />
-            </section>
+        <div className="dashboard-container">
+            <div className="welcome-message">
+                Welcome, {userName}!
+            </div>
         </div>
     );
 };
 
-export default CompanyDashboard;
+export default DashboardPage;

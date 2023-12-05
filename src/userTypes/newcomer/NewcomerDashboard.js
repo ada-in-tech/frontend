@@ -1,60 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../services/api';
-import Card from '../../components/cards/Card';
-import CommunityFeed from '../../components/common/CommunityFeed';
-import '../../styles/components.css';
+import { decodeToken } from '../../utils/helper';
 
-const NewcomerDashboard = () => {
-    const [courses, setCourses] = useState([]);
-    const [jobs, setJobs] = useState([]);
-    const [mentors, setMentors] = useState([]);
-    const [communityFeeds, setCommunityFeeds] = useState([]);
+const DashboardPage = () => {
+    const [userName, setUserName] = useState('Guest');
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchUserData = async () => {
+            const token = localStorage.getItem('token');
+            const decoded = decodeToken(token);
+            const userId = decoded ? decoded.userId : null;
+            if (!token) return;
+
             try {
-                const coursesResponse = await axios.get('/api/courses');
-                setCourses(coursesResponse.data);
-                // Fetch jobs, mentors, and community feeds similarly
+                // Assuming your API has an endpoint that returns the logged-in user's data
+                const response = await axios.get(`/api/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setUserName(response.data.name); // Update this path based on your API response structure
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching user data:', error);
             }
         };
-        fetchData();
+
+        fetchUserData();
     }, []);
 
     return (
-        <div className="dashboard">
-            <section className="courses">
-                <h2 className="text-2xl font-bold mb-4">Recommended Courses</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {courses.map(course => (
-                        <Card key={course.id} item={course} />
-                    ))}
-                </div>
-            </section>
-            <section className="job-listings">
-                <h2 className="text-2xl font-bold mb-4">Job Listings</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {jobs.map(job => (
-                        <Card key={job.id} item={job} />
-                    ))}
-                </div>
-            </section>
-            <section className="mentors">
-                <h2 className="text-2xl font-bold mb-4">Mentors</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {mentors.map(mentor => (
-                        <Card key={mentor.id} item={mentor} />
-                    ))}
-                </div>
-            </section>
-            <section className="community-feed">
-                <h2 className="text-2xl font-bold mb-4">Community Feed</h2>
-                <CommunityFeed feeds={communityFeeds} />
-            </section>
+        <div className="dashboard-container">
+            <div className="welcome-message">
+                Welcome, {userName}!
+            </div>
         </div>
     );
 };
 
-export default NewcomerDashboard;
+export default DashboardPage;
