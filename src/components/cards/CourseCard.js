@@ -1,17 +1,20 @@
-// CourseCard.js
 import React from 'react';
-import '../../styles/card.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const CourseCard = ({ title, description, imageUrl }) => {
-    const defaultImage = 'path/to/default/image.jpg'; // Replace with actual path to default image
+const CourseCard = ({ course }) => {
+    const navigate = useNavigate();
+
+    // Function to handle card click
+    const handleCardClick = () => {
+        navigate(`/courses/${course._id}`); // Navigate to detailed course page
+    };
 
     return (
-        <div className="card course-card">
-            <img src={imageUrl || defaultImage} alt={title} className="course-image" />
-            <div className="p-4">
-                <h3 className="card-title">{title}</h3>
-                <p className="card-body">{description}</p>
-            </div>
+        <div className="course-card" onClick={handleCardClick}>
+            <img src={course.image || 'https://designwizard.com/blog/famous-graphic-designers/resize/awardsBaitBannerImage_1650363716109_resize.jpg'} alt={course.title} />
+            <h3>{course.title}</h3>
+            <p>{course.description}</p>
+            <p>By: {course.instructor?.name || 'Unknown'}</p>
         </div>
     );
 };

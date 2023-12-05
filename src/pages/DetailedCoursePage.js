@@ -5,7 +5,7 @@ import '../styles/card.css';
 
 const DetailedCoursePage = () => {
     const { courseId } = useParams();
-    const [course, setCourse] = useState(null);
+    const [course, setCourse] = useState({ content: [] }); // Initialize with default structure
 
     useEffect(() => {
         const fetchCourse = async () => {
@@ -20,18 +20,30 @@ const DetailedCoursePage = () => {
         fetchCourse();
     }, [courseId]);
 
-    if (!course) return <div className="card">Course not found</div>;
+    const renderContent = () => {
+        if (Array.isArray(course.content)) {
+            return course.content.map((chapter, index) => (
+                <li key={index}>{chapter}</li>
+            ));
+        } else if (typeof course.content === 'string') {
+            // Example: If content is a string, split by a delimiter and map
+            return course.content.split(',').map((chapter, index) => (
+                <li key={index}>{chapter}</li>
+            ));
+        } else {
+            return <li>Content format not supported</li>;
+        }
+    };
+
+    // Optional: Loading state check
+    if (!course) return <div className="card">Loading...</div>;
 
     return (
         <div className="card">
             <h1 className="card-title">{course.title}</h1>
-            <img src={course.imageUrl} alt={course.title} className="card-image" />
+            <img src={course.image} alt={course.title} className="card-image" />
             <p className="card-body">{course.description}</p>
-            <ul>
-                {course.content.map((chapter, index) => (
-                    <li key={index}>{chapter}</li>
-                ))}
-            </ul>
+            <ul>{renderContent()}</ul>
         </div>
     );
 };

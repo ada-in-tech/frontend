@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../services/api';
 import '../styles/components.css';
+import { decodeToken } from '../utils/helper';
 
 const CourseCreationPage = () => {
     const [courseData, setCourseData] = useState({
@@ -11,14 +12,20 @@ const CourseCreationPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('token');
+        const decoded = decodeToken(token);
+        const userId = decoded ? decoded.userId : null;
+
+        const courseWithInstructor = { ...courseData, instructor: userId };
+
         try {
-            const response = await axios.post('/api/courses', courseData);
-            console.log(response.data); // Handle success - maybe redirect or show success message
+            const response = await axios.post('/api/courses', courseWithInstructor);
+            console.log(response.data);
         } catch (error) {
             console.error('Error creating course:', error.message);
-            // Optionally, handle errors, like showing error messages to the user
         }
     };
+
 
     const handleChange = (e) => {
         setCourseData({ ...courseData, [e.target.name]: e.target.value });
