@@ -352,6 +352,7 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
 }
 
 .table th,
@@ -359,10 +360,11 @@
   padding: 0.5rem;
   border: 1px solid #ccc;
   text-align: left;
+  background-color: white; 
 }
 
 .table th {
-  background-color: #f0f0f0;
+  background-color: #7a9ae2;
 }
 
 .table tr:hover {

@@ -20,7 +20,7 @@ const SignUpPage = () => {
         { label: 'Established Tech Professional', value: 'professional' },
         { label: 'Tech Company', value: 'company' },
         { label: 'Community/Advocacy Group', value: 'community' },
-        { label: 'Admin', value: 'admin' },
+        {/* label: 'Admin', value: 'admin' */ },
     ];
 
     const navigate = useNavigate();
