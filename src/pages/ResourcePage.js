@@ -1,31 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../services/api';
-import Card from '../components/cards/Card';
+import ResourceCard from '../components/cards/ResourceCard';
+import Filter from '../components/common/Filter';
 import '../styles/components.css';
 
 const ResourcePage = () => {
     const [resources, setResources] = useState([]);
+    const [filterValue, setFilterValue] = useState('');
 
     useEffect(() => {
         const fetchResources = async () => {
+            const token = localStorage.getItem('token');
             try {
-                const response = await axios.get('/api/resources');
+                const response = await axios.get('/api/resources', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(response.data);
                 setResources(response.data);
             } catch (error) {
                 console.error('Error fetching resources:', error.message);
-                // Optionally, handle error (e.g., showing an error message)
             }
         };
 
         fetchResources();
     }, []);
 
+    const handleFilterChange = (value) => {
+        setFilterValue(value);
+    };
+
+    const filteredResources = resources.filter(resource =>
+        resource.title.toLowerCase().includes(filterValue.toLowerCase())
+    );
+
     return (
         <div className="resource-page">
             <h1>Resources</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {resources.map(resource => (
-                    <Card key={resource.id} item={resource} className="resource-card" />
+            <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {filteredResources.map(resource => (
+                    <ResourceCard key={resource.id} resource={resource} />
                 ))}
             </div>
         </div>

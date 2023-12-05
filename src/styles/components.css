@@ -385,3 +385,16 @@
 .table .button:hover {
   background-color: var(--accent-color);
 }
+
+.sharer-info {
+    margin-bottom: 10px; 
+}
+
+.resource-card {
+  background-color: white; /* Set the background color to white */
+  text-align: left; /* Align text to the left */
+  padding: 16px; /* Add some padding around the content */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: to add a subtle shadow */
+  /* Add other styling as needed */
+}
