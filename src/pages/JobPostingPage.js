@@ -1,63 +1,58 @@
 import React, { useState } from 'react';
 import axios from '../services/api';
 import '../styles/components.css';
+import { decodeToken } from '../utils/helper';
 
 const JobPostingPage = () => {
-    const [formData, setFormData] = useState({
-        jobTitle: '',
+    const [jobListingData, setJobListingData] = useState({
+        title: '',
         description: '',
-        requirements: '',
+        location: '',
     });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('token');
+        const decoded = decodeToken(token);
+        const userId = decoded ? decoded.userId : null;
+
+        const jobListingWithCompany = { ...jobListingData, company: userId };
+
         try {
-            await axios.post('/api/jobs', formData);
-            // Handle post success, e.g., show success message or redirect
+            const response = await axios.post('/api/joblistings', jobListingWithCompany);
+            setJobListingData({ title: '', description: '', location: '' });
+            setSuccessMessage('Job listing created successfully!');
+            console.log(response.data);
         } catch (error) {
-            console.error('Error posting job:', error.message);
-            // Optionally, handle error (e.g., showing an error message)
+            console.error('Error creating job listing:', error.message);
+            setSuccessMessage('');
         }
     };
 
+    const handleChange = (e) => {
+        setJobListingData({ ...jobListingData, [e.target.name]: e.target.value });
+    };
+
     return (
-        <div className="job-posting-container">
-            <h2>Create a Job Posting</h2>
-            <form className="job-posting-form" onSubmit={handleSubmit}>
+        <div className="resource-creation-container">
+            <h2>Create a New Job Listing</h2>
+            {successMessage && <div className="success-message">{successMessage}</div>}
+            <form className="joblisting-form" onSubmit={handleSubmit}>
                 <div className="input-field">
                     <label>Job Title</label>
-                    <input
-                        type="text"
-                        placeholder="Enter job title"
-                        name="jobTitle"
-                        value={formData.jobTitle}
-                        onChange={handleChange}
-                    />
+                    <input type="text" name="title" value={jobListingData.title} onChange={handleChange} placeholder="Enter job title" />
                 </div>
                 <div className="input-field">
                     <label>Description</label>
-                    <textarea
-                        placeholder="Enter job description"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                    ></textarea>
+                    <textarea name="description" value={jobListingData.description} onChange={handleChange} placeholder="Enter job description"></textarea>
                 </div>
                 <div className="input-field">
-                    <label>Requirements</label>
-                    <textarea
-                        placeholder="List job requirements"
-                        name="requirements"
-                        value={formData.requirements}
-                        onChange={handleChange}
-                    ></textarea>
+                    <label>Location</label>
+                    <textarea name="location" value={jobListingData.location} onChange={handleChange} placeholder="Enter job location"></textarea>
                 </div>
                 <div className="button-container">
-                    <button type="submit" className="button">Post Job</button>
+                    <button type="submit" className="button">Post Job Listing</button>
                 </div>
             </form>
         </div>
