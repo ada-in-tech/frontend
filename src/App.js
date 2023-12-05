@@ -36,6 +36,7 @@ import CommunityPage from './pages/CommunityPage';
 import CollaborationPage from './pages/CollaborationPage';
 import ResourcePage from './pages/ResourcePage';
 import WorkshopCreationPage from './pages/WorkshopCreationPage';
+import CampaignPage from './pages/CampaignPage';
 
 import './App.css';
 
@@ -80,6 +81,7 @@ function App() {
                 <Route path="/collaboration" element={<CollaborationPage />} />
                 <Route path="/resources" element={<ResourcePage />} />
                 <Route path="/workshop-creation" element={<WorkshopCreationPage />} />
+                <Route path="/campaign" element={<CampaignPage />} />
               </Routes>
             </main>
             <Footer />

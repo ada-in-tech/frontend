@@ -24,6 +24,7 @@ const NavigationBar = () => {
                     <li><Link to="/job-listings">Job Search</Link></li>
                     <li><Link to="/mentor">Mentors</Link></li>
                     <li><Link to="/collaboration">Collaborations</Link></li>
+                    <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
@@ -41,6 +42,7 @@ const NavigationBar = () => {
                     <li><Link to="/course-creation">Create Course</Link></li>
                     <li><Link to="/resource-creation">Create Resource</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
+                    <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/community">Communities</Link></li>
                     <li><Link to="/company">Companies</Link></li>
@@ -62,6 +64,7 @@ const NavigationBar = () => {
                     <li><Link to="/workshop-creation">Create Workshop</Link></li>
                     <li><Link to="/resource-creation">Create Resource</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
+                    <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/community">Communities</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
@@ -78,6 +81,7 @@ const NavigationBar = () => {
                     <li><Link to="/resource-creation">Create Resources</Link></li>
                     <li><Link to="/mentor">Mentors</Link></li>
                     <li><Link to="/company">Companies</Link></li>
+                    <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                     <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
