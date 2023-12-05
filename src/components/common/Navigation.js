@@ -26,10 +26,8 @@ const NavigationBar = () => {
                     <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
-                    <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
                 </>
             )}
 
@@ -46,10 +44,8 @@ const NavigationBar = () => {
                     <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/community">Communities</Link></li>
                     <li><Link to="/company">Companies</Link></li>
-                    <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
                 </>
             )}
 
@@ -67,10 +63,8 @@ const NavigationBar = () => {
                     <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/collaboration">Collaborations</Link></li>
                     <li><Link to="/community">Communities</Link></li>
-                    <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
                 </>
             )}
 
@@ -83,10 +77,8 @@ const NavigationBar = () => {
                     <li><Link to="/company">Companies</Link></li>
                     <li><Link to="/campaign">Campaigns</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
-                    <li><Link to="/feedback">Feedback</Link></li>
                     <li><Link to="/report-incident">Report Incident</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
                 </>
             )}
 
@@ -96,12 +88,9 @@ const NavigationBar = () => {
                     <li><Link to="/user-management">User Management</Link></li>
                     <li><Link to="/content-moderation">Content Management</Link></li>
                     <li><Link to="/reports-feedback">Reports and Feedback</Link></li>
-                    <li><Link to="/feedback">Feedback</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
                 </>
             )}
 
-            {/* Add more links as needed */}
         </ul>
     );
 };
