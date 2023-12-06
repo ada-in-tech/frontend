@@ -12,8 +12,8 @@ const Footer = () => {
                     <ul>
                         <li><a href="/courses">Courses</a></li>
                         <li><a href="/workshops">Workshops</a></li>
-                        <li><a href="/mentorship">Mentorship</a></li>
-                        <li><a href="/events">Events</a></li>
+                        <li><a href="/mentor">Mentorship</a></li>
+                        <li><a href="/campaign">Events</a></li>
                     </ul>
                 </div>
 

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from '../services/api';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import FeatureCard from '../components/cards/FeatureCard';
 import TestimonialCard from '../components/cards/TestimonialCard';
-import NewsCard from '../components/cards/NewsCard';
 
 const HomePage = () => {
     // const [latestNews, setLatestNews] = useState([]);
@@ -61,8 +59,8 @@ const HomePage = () => {
             <section className="bg-white py-20 text-center">
                 <h2 className="text-4xl font-bold mb-6">Testimonials</h2>
                 <div className="container mx-auto grid md:grid-cols-2 gap-12">
-                    <TestimonialCard author="Jane Doe" text="This platform has been instrumental in my career growth." />
-                    <TestimonialCard author="John Smith" text="The mentorship I received through Ada in Tech has been invaluable." />
+                    <TestimonialCard author="Ngozi Ebere" text="This platform has been instrumental in my career growth." />
+                    <TestimonialCard author="Azeeza Moyo" text="The mentorship I received through Ada in Tech has been invaluable." />
                     {/* Add more testimonials as needed */}
                 </div>
             </section>

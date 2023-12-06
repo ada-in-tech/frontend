@@ -37,7 +37,7 @@ const CampaignPage = () => {
 
     return (
         <div className="Campaign-page">
-            <h1>Campaigns</h1>
+            <h1 className="h1">Campaigns</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredCampaigns.map(campaign => (

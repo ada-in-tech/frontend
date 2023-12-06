@@ -37,7 +37,7 @@ const CampaignCreationPage = () => {
 
     return (
         <div className="resource-creation-container">
-            <h2>Create a New Campaign</h2>
+            <h2 className="h1">Create a New Campaign</h2>
             {successMessage && <div className="success-message">{successMessage}</div>}
             <form className="campaign-form" onSubmit={handleSubmit}>
                 <div className="input-field">

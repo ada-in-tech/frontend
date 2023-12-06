@@ -37,7 +37,7 @@ const WorkshopCreationPage = () => {
 
     return (
         <div className="workshop-creation-container">
-            <h2>Create a New Workshop</h2>
+            <h2 className="h1">Create a New Workshop</h2>
             {successMessage && <div className="success-message">{successMessage}</div>}
             <form className="workshop-form" onSubmit={handleSubmit}>
                 <div className="input-field">

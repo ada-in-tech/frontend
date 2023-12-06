@@ -37,7 +37,7 @@ const WorkshopPage = () => {
 
     return (
         <div className="workshop-page">
-            <h1>Workshops</h1>
+            <h1 className="h1">Advanced Courses and Workshops</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredWorkshops.map(workshop => (

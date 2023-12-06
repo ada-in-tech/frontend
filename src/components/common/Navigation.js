@@ -33,7 +33,7 @@ const NavigationBar = () => {
             {userType === 'professional' && (
                 <>
                     <li><Link to="/workshops">Workshops</Link></li>
-                    <li><Link to="/newcomer">Newcomers</Link></li>
+                    <li><Link to="/newcomer">Find Mentee</Link></li>
                     <li><Link to="/mentor">Mentors</Link></li>
                     <li><Link to="/course-creation">Create Course</Link></li>
                     <li><Link to="/resource-creation">Create Resource</Link></li>

@@ -49,7 +49,7 @@ const ReportIncidentPage = () => {
 
     return (
         <div className="report-incident-page">
-            <h1>Report Incident</h1>
+            <h1 className="h1">Report Incident</h1>
             <form onSubmit={handleSubmit}>
                 <textarea
                     placeholder="Describe the incident"

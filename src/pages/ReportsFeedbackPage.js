@@ -68,7 +68,7 @@ const ReportsFeedbackPage = () => {
 
     return (
         <div className="reports-feedback-page">
-            <h2>Reports and Feedback</h2>
+            <h2 className="h1">Reports and Feedback</h2>
             <Table
                 data={reportsFeedback}
                 onRowClick={handleReportClick}

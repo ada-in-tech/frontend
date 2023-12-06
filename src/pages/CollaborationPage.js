@@ -40,7 +40,7 @@ const CollaborationPage = () => {
 
     return (
         <div className="collaboration-page">
-            <h1>Collaborations</h1>
+            <h1 className="h1">Collaborations</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {collaborations.map(collab => (
                     <Card key={collab._id} item={collab.receiver} className="collaboration-card" />

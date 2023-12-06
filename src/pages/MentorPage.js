@@ -31,7 +31,7 @@ const ProfessionalPage = () => {
 
     return (
         <div className="professional-page">
-            <h1>Professionals</h1>
+            <h1 className="h1">Professionals</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredProfessionals.map(professional => (

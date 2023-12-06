@@ -40,7 +40,7 @@ const UserManagementPage = () => {
 
     return (
         <div>
-            <h1>User Management</h1>
+            <h1 className="h1">User Management</h1>
             <UserTable data={users} onDeleteUser={handleDeleteUser} />
         </div>
     );

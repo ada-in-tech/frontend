@@ -28,13 +28,12 @@ const NewcomerPage = () => {
     };
 
     const filteredNewcomers = newcomers.filter(newcomer =>
-        newcomer.user.name.toLowerCase().includes(filterValue.toLowerCase())
+        newcomer.user?.name?.toLowerCase().includes(filterValue.toLowerCase())
     );
-
 
     return (
         <div className="newcomer-page">
-            <h1>Newcomers</h1>
+            <h1 className='h1'>Newcomers</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredNewcomers.map(newcomer => (

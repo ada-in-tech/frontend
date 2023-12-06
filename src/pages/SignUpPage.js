@@ -4,9 +4,11 @@ import InputField from '../components/form/InputField';
 import SelectField from '../components/form/SelectField';
 import Button from '../components/common/Button';
 import '../styles/auth.css';
-import { registerUser } from '../services/userService'; // Adjust the import path as needed
+import { registerUser } from '../services/userService';
 
 const SignUpPage = () => {
+    const [error, setError] = useState('');
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -35,7 +37,7 @@ const SignUpPage = () => {
             navigate('/verify-email');
         } catch (error) {
             console.error('Registration error:', error.message);
-            // Optionally, show error to the user
+            setError(error.message);
         }
     };
 
@@ -86,6 +88,7 @@ const SignUpPage = () => {
                 <p>
                     Already have an account? <Link to="/login" style={{ color: '#0077b6' }}>Login</Link>
                 </p>
+                {error && <p className="error-message">{error}</p>}
             </form>
         </div>
     );

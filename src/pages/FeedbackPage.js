@@ -26,7 +26,7 @@ const FeedbackPage = () => {
 
     return (
         <div className="feedback-page">
-            <h1>Feedback</h1>
+            <h1 className="h1">Feedback</h1>
             <form onSubmit={handleSubmit}>
                 <select name="type" onChange={handleChange} value={feedbackData.type}>
                     <option value="general">General Feedback</option>

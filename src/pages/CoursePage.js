@@ -32,7 +32,7 @@ const CoursePage = () => {
 
     return (
         <div className="course-page">
-            <h1>Courses</h1>
+            <h1 className="h1">Courses</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredCourses.map(course => (

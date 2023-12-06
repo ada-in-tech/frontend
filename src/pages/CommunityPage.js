@@ -22,7 +22,7 @@ const CommunityPage = () => {
 
     return (
         <div className="community-page">
-            <h1>Community Groups</h1>
+            <h1 className="h1">Community Groups</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {communityGroups.map(group => (
                     <Card key={group._id} item={group} className="community-card" />

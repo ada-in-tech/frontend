@@ -20,7 +20,7 @@ const Card = ({ item }) => {
     } = userData;
 
     const [showContactModal, setShowContactModal] = useState(false);
-    const [message, setMessage] = useState('');
+    const [message] = useState('');
 
     console.log(item);
 
@@ -45,8 +45,8 @@ const Card = ({ item }) => {
                 <h3 className="card-title">{name}</h3>
                 <p>{email}</p>
                 <p>{bio}</p>
-                <p>Skills: {formatArray(skills)}</p>
-                <p>Interests: {formatArray(interests)}</p>
+                {message && skills && <p>Skills: {formatArray(skills)}</p>}
+                {message && interests && <p>Interests: {formatArray(interests)}</p>}
                 <p>Role: {role}</p>
                 {linkedIn && <p>LinkedIn: <a href={linkedIn}>{linkedIn}</a></p>}
                 {github && <p>GitHub: <a href={github}>{github}</a></p>}

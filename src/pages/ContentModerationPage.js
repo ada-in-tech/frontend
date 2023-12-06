@@ -67,7 +67,7 @@ const ContentModerationPage = () => {
 
     return (
         <div>
-            <h1>Content Moderation</h1>
+            <h1 className="h1">Content Moderation</h1>
             <ContentTable data={contents} onDeleteContent={handleDeleteContent} />
         </div>
     );

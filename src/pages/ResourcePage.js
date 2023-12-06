@@ -37,7 +37,7 @@ const ResourcePage = () => {
 
     return (
         <div className="resource-page">
-            <h1>Resources</h1>
+            <h1 className="h1">Resources</h1>
             <Filter onChange={handleFilterChange} options={[{ value: '', label: 'All' }, /* Add more filter options as needed */]} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {filteredResources.map(resource => (
