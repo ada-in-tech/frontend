@@ -56,9 +56,14 @@ const ContentModerationPage = () => {
     }, []);
 
     const handleDeleteContent = async (contentId, type) => {
+        const token = localStorage.getItem('token');
         try {
             // Deleting content based on its type
-            await axios.delete(`/api/${type.toLowerCase()}s/${contentId}`);
+            await axios.delete(`/api/${type.toLowerCase()}s/${contentId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setContents(contents.filter(content => content._id !== contentId));
         } catch (error) {
             console.error('Error deleting content:', error);
