@@ -12,6 +12,8 @@ const LoginPage = () => {
         password: '',
     });
 
+    const [error, setError] = useState('');
+
     const { login } = useUser();
     const navigate = useNavigate();
 
@@ -31,6 +33,7 @@ const LoginPage = () => {
             }
         } catch (error) {
             console.error('Login error:', error.message);
+            setError(error.message);
         }
     };
 
@@ -61,6 +64,7 @@ const LoginPage = () => {
                 <p>
                     Don't have an account? <Link to="/signup" style={{ color: '#0077b6' }}>Sign Up</Link>
                 </p>
+                {error && <p className="error-message">{error}</p>}
             </form>
         </div>
     );
