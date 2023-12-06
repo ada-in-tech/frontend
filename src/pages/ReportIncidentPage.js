@@ -31,8 +31,9 @@ const ReportIncidentPage = () => {
             const response = await axios.post('/api/reports', {
                 user: userId,
                 description: reportData.description,
-                dateReported: reportData.dateReported, // Changed from 'date' to 'dateReported'
+                dateReported: reportData.dateReported,
             });
+            setReportData({ description: '', dateReported: '' });
             console.log('Report submitted:', response.data);
             setSubmitSuccess(true);
         } catch (error) {
